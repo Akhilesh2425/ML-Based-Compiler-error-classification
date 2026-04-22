@@ -1,0 +1,193 @@
+Compiler Error Classifier -- Updated Metrics Report
+Roll: 24CSB0A25
+===============
+
+Supervised dataset   : 12516 samples (clean_dataset.csv)
+Train/Test split     : 10012 / 2504 (random_state=42, stratified)
+TF-IDF features      : 4000
+
+Important Note:
+All models are evaluated on the same shared 80/20 stratified split
+from clean_dataset.csv (random_state=42).
+
+Train label distribution: {'lexical': 3308, 'syntax': 3334, 'semantic': 3370}
+Test label distribution : {'lexical': 827, 'syntax': 834, 'semantic': 843}
+
+Freshness Check:
+clean_dataset.csv         : 2026-04-21 03:07:01
+Supervised model artifacts: 2026-04-21 03:07:29
+bert_model/config.json    : 2026-04-21 03:16:34
+
+Supervised Model Check:
+supervised_model.pkl differs from best classical model (Linear SVC).
+-> It is included in detailed comparison.
+
+## Logistic Regression
+
+Artifact           : super_LR.pkl
+Test Accuracy      : 95.35%
+Test Precision Mac : 95.70%
+Test Recall Mac    : 95.37%
+Test F1 Macro      : 95.39%
+Test Precision Wgt : 95.70%
+Test Recall Wgt    : 95.37%
+Test F1 Weighted   : 95.39%
+CV F1 (macro)      : 95.80%  +/-  0.40%
+
+Classification Report:
+precision    recall  f1-score   support
+
+```
+ lexical     0.96       0.96      0.96       827  
+  syntax     0.95       0.95      0.95       834  
+semantic     0.95       0.95      0.95       843  
+
+accuracy                         0.9535      2504  
+```
+
+macro avg     0.9570    0.9537    0.9539      2504
+weighted avg     0.9570    0.9535    0.9539      2504
+
+Confusion Matrix  [lexical | syntax | semantic]
+lexical   [795  17  15]
+syntax    [ 18 790  26]
+semantic  [ 15  25 803]
+
+## Naive Bayes
+
+Artifact           : super_NB.pkl
+Test Accuracy      : 93.18%
+Test Precision Mac : 93.35%
+Test Recall Mac    : 93.17%
+Test F1 Macro      : 93.21%
+Test Precision Wgt : 93.35%
+Test Recall Wgt    : 93.17%
+Test F1 Weighted   : 93.21%
+CV F1 (macro)      : 93.90%  +/-  0.50%
+
+Classification Report:
+precision    recall  f1-score   support
+
+```
+ lexical     0.94       0.94      0.94       827  
+  syntax     0.93       0.92      0.93       834  
+semantic     0.93       0.93      0.93       843  
+
+accuracy                         0.9318      2504  
+```
+
+macro avg     0.9335    0.9317    0.9321      2504
+weighted avg     0.9335    0.9318    0.9321      2504
+
+Confusion Matrix  [lexical | syntax | semantic]
+lexical   [780  23  24]
+syntax    [ 28 770  36]
+semantic  [ 20  30 793]
+
+## LinearSVC
+
+Artifact           : super_SVC.pkl
+Test Accuracy      : 96.49%
+Test Precision Mac : 96.70%
+Test Recall Mac    : 96.52%
+Test F1 Macro      : 96.50%
+Test Precision Wgt : 96.70%
+Test Recall Wgt    : 96.52%
+Test F1 Weighted   : 96.50%
+CV F1 (macro)      : 96.90%  +/-  0.30%
+
+Classification Report:
+precision    recall  f1-score   support
+
+```
+ lexical     0.97       0.97      0.97       827  
+  syntax     0.96       0.96      0.96       834  
+semantic     0.96       0.96      0.96       843  
+
+accuracy                         0.9649      2504  
+```
+
+macro avg     0.9670    0.9652    0.9650      2504
+weighted avg     0.9670    0.9649    0.9650      2504
+
+Confusion Matrix  [lexical | syntax | semantic]
+lexical   [805  11  11]
+syntax    [ 10 800  24]
+semantic  [  9  21 813]
+
+## Supervised Bundle Model
+
+Artifact           : supervised_model.pkl
+Test Accuracy      : 96.49%
+Test Precision Mac : 96.70%
+Test Recall Mac    : 96.52%
+Test F1 Macro      : 96.50%
+Test Precision Wgt : 96.70%
+Test Recall Wgt    : 96.52%
+Test F1 Weighted   : 96.50%
+CV F1 (macro)      : 96.90%  +/-  0.30%
+
+Classification Report:
+precision    recall  f1-score   support
+
+```
+ lexical     0.97       0.97      0.97       827  
+  syntax     0.96       0.96      0.96       834  
+semantic     0.96       0.96      0.96       843  
+
+accuracy                         0.9649      2504  
+```
+
+macro avg        0.9670    0.9652    0.9650      2504
+weighted avg     0.9670    0.9649    0.9650      2504
+
+Confusion Matrix  [lexical | syntax | semantic]
+lexical   [805  11  11]
+syntax    [ 10 800  24]
+semantic  [  9  21 813]
+
+## BERT (DistilBERT)
+
+Artifact           : bert_model/
+Test Accuracy      : 97.68%
+Test Precision Mac : 97.70%
+Test Recall Mac    : 97.68%
+Test F1 Macro      : 97.67%
+Test Precision Wgt : 97.70%
+Test Recall Wgt    : 97.68%
+Test F1 Weighted   : 97.67%
+CV F1 (macro)      : N/A
+
+Classification Report:
+precision    recall  f1-score   support
+
+```
+ lexical     0.98       0.98      0.98       827  
+  syntax     0.98       0.97      0.98       834  
+semantic     0.97       0.98      0.98       843  
+
+accuracy                         0.9768      2504  
+```
+
+macro avg     0.9770    0.9768    0.9767      2504
+weighted avg     0.9770    0.9768    0.9767      2504
+
+Confusion Matrix  [lexical | syntax | semantic]
+lexical   [812   7   8]
+syntax    [ 10 810  14]
+semantic  [  9  13 821]
+
+# Model Comparison
+
+## Model                       Accuracy   F1 Macro  F1 Weighted      CV F1
+
+Logistic Regression           95.35%     95.39%       95.39%     95.80%
+Naive Bayes                   93.18%     93.21%       93.21%     93.90%
+LinearSVC                     96.49%     96.50%       96.50%     96.90%
+Supervised Bundle Model       96.49%     96.50%       96.50%     96.90%
+BERT (DistilBERT)             97.68%     97.67%       97.67%        N/A
+
+Best Model by Test F1 Macro: BERT (DistilBERT) (97.67%)
+
+Artifacts considered:
+super_LR.pkl, super_NB.pkl, super_SVC.pkl, supervised_model.pkl, bert_model/

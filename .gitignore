@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Training/model outputs (too large for normal GitHub pushes)
+bert_model/
+bert_output/
+output_models/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db

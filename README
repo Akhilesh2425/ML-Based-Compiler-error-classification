@@ -1,0 +1,14 @@
+Project: ML-Based Compiler Error Classification
+Author: Roll 24CSB0A25
+
+Run:
+python src/main.py
+
+Agentic AI Module:
+python src/agentic_model.py --error "error: expected ';' before '}' token"
+python src/agentic_model.py --log-file build.log --json
+
+Group Files (shared):
+- src/parser.py        -> extracts compiler errors from logs
+- src/fixer.py         -> builds fix actions and reasoning
+- src/agentic_model.py -> orchestrates the agent loop

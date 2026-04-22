@@ -1,0 +1,4 @@
+error_message,label
+ld returned 1 exit status,lexical
+ld returned 1 exit status,syntax
+ld returned 1 exit status,semantic
