@@ -73,7 +73,6 @@ python src/agentic_model.py --log-file build.log --json
 ## Project Structure
 
 ```
-├── agentic_ai/       # Agent orchestration logic
 ├── c_samples/         # Sample C files with intentional errors, used for testing
 ├── data/               # Training data
 ├── models/            # Saved model artifacts (NB, semi-NB, LR, semi-LR, DistilBERT)
@@ -85,21 +84,6 @@ python src/agentic_model.py --log-file build.log --json
 ├── tests/             # Unit tests
 └── train_bert.py       # DistilBERT fine-tuning script
 ```
-
-## Team Contribution
-
-Each of the 5 classification models was independently trained and evaluated
-by me as part of a 3-person project (each teammate trained their own set of
-models). Once individual work was complete, our instructor asked the team to
-combine the separately trained models into a single system rather than
-submitting three near-identical projects — so the three of us collaboratively
-built the agentic model-selection layer (`src/agentic_model.py`) that
-differentiates between all trained models and picks the best one per error.
-
-- **`src/parser.py`, `src/fixer.py`, `src/agentic_model.py`** — built
-  collaboratively by the team (shared files)
-- **Model training, semantic risk-mapping logic** — trained and built
-  individually
 
 ## Limitations & Future Work
 
